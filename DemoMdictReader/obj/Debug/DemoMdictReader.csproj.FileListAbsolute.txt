@@ -1,0 +1,12 @@
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\bin\Debug\DemoMdictReader.exe.config
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\bin\Debug\DemoMdictReader.exe
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\bin\Debug\DemoMdictReader.pdb
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\bin\Debug\Ionic.Zip.dll
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\bin\Debug\Ionic.Zip.pdb
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\bin\Debug\Ionic.Zip.xml
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\obj\Debug\DemoMdictReader.csprojResolveAssemblyReference.cache
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\obj\Debug\DemoMdictReader.Form1.resources
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\obj\Debug\DemoMdictReader.Properties.Resources.resources
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\obj\Debug\DemoMdictReader.csproj.GenerateResource.Cache
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\obj\Debug\DemoMdictReader.exe
+d:\data\documents\visual studio 2013\Projects\DemoMdictReader\DemoMdictReader\obj\Debug\DemoMdictReader.pdb
