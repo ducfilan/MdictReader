@@ -1,27 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DemoMdictReader
 {
     public partial class Form1 : Form
     {
+        Mdx _dict;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnInitialize_Click(object sender, EventArgs e)
         {
-            var dict = new MDict(@"D:\mtBab EV v1.0.mdd");
+            _dict = new Mdx(txtDictFile.Text);
+            _dict.GetStyleSheets();
+            _dict.GetKeys();
+            _dict.IgnoreKeys();
+            _dict.GetRecordBlocksInfo();
 
-            dict.GetKeys();
+            MessageBox.Show(@"Ok well done!", @"Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtDictFile.Text = openFileDialog.FileName;
+            }
+        }
+
+        private void btnGetValue_Click(object sender, EventArgs e)
+        {
+            wbResult.DocumentText = _dict.GetKeyValue(new MdictHelper.Tuple<long, long, string>(int.Parse(txtValue1.Text), int.Parse(txtValue2.Text), txtValue3.Text));
         }
     }
 }

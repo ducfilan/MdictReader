@@ -350,7 +350,7 @@ namespace DemoMdictReader
             }
         }
 
-        public string GetKeyValue(MdictHelper.Tuple<long, long, string> FindKey)
+        public string GetKeyValue(MdictHelper.Tuple<long, long, string> findKey)
         {
             try
             {
@@ -364,10 +364,10 @@ namespace DemoMdictReader
                     h += RecordBlockInfoList[kj].Value2;
                     ofset += RecordBlockInfoList[kj].Value1;
 
-                    if (h > FindKey.Value1)
+                    if (h > findKey.Value1)
                     {
                         findBlock = RecordBlockInfoList[kj];
-                        start = RecordBlockInfoList[kj].Value2 - (h - FindKey.Value1);
+                        start = RecordBlockInfoList[kj].Value2 - (h - findKey.Value1);
 
                         ofset -= RecordBlockInfoList[kj].Value1;
 
@@ -386,11 +386,11 @@ namespace DemoMdictReader
 
                 Encoding encoder = Headers["Encoding"] == "UTF-16" ? Encoding.Unicode : Encoding.UTF8;
 
-                string findKeyText = encoder.GetString(MdictHelper.HexStringToByteArray(findKeyDecompressedText.Replace("-", "").Substring((int)start * 2, ((int)(FindKey.Value2)) * 2))).Replace("\0", "");
+                string findKeyText = encoder.GetString(MdictHelper.HexStringToByteArray(findKeyDecompressedText.Replace("-", "").Substring((int)start * 2, ((int)(findKey.Value2)) * 2))).Replace("\0", "");
 
-                var _pattern = new Regex(@"[`](?<id>\d*)[`]",
+                var pattern = new Regex(@"[`](?<id>\d*)[`]",
                     RegexOptions.Compiled | RegexOptions.IgnoreCase);
-                MatchCollection _q = _pattern.Matches(findKeyText);
+                MatchCollection _q = pattern.Matches(findKeyText);
                 foreach (Match qm in _q)
                 {
                     int id = int.Parse(qm.Groups["id"].Value);
@@ -414,7 +414,7 @@ namespace DemoMdictReader
     {
         public Mdd(string filePath) : base(filePath) { }
 
-        public byte[] GetKeyValue(MdictHelper.Tuple<long, long, string> FindKey)
+        public byte[] GetKeyValue(MdictHelper.Tuple<long, long, string> findKey)
         {
             try
             {
@@ -428,10 +428,10 @@ namespace DemoMdictReader
                     h += RecordBlockInfoList[kj].Value2;
                     ofset += RecordBlockInfoList[kj].Value1;
 
-                    if (h > FindKey.Value1)
+                    if (h > findKey.Value1)
                     {
                         findBlock = RecordBlockInfoList[kj];
-                        start = RecordBlockInfoList[kj].Value2 - (h - FindKey.Value1);
+                        start = RecordBlockInfoList[kj].Value2 - (h - findKey.Value1);
 
                         ofset -= RecordBlockInfoList[kj].Value1;
 
@@ -450,7 +450,7 @@ namespace DemoMdictReader
 
                 mdictStream.Close();
 
-                return MdictHelper.HexStringToByteArray(findKeyDecompressedText.Replace("-", "").Substring((int)start * 2, (int)FindKey.Value2 * 2));
+                return MdictHelper.HexStringToByteArray(findKeyDecompressedText.Replace("-", "").Substring((int)start * 2, (int)findKey.Value2 * 2));
             }
             catch
             {
